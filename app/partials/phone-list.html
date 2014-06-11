@@ -2,25 +2,22 @@
   <div class="row">
     <div class="col-md-2">
       <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
+        
+        <br><br>
+      Inspector ID: <input ng-model="query">
+        <br><br>
+      Password: <input ng-model="query1">
+        <br><br>
+       
+        <a href="#/phones/:phoneId">
+        <img ng-src="img/phones/Login_button.gif">
+        </a>
+ 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
+      <ul class="phones"></ul>
 
     </div>
   </div>
