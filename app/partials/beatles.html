@@ -1,0 +1,30 @@
+<!--body>you've successfully logged in!</body-->
+
+<body ng-app class="animate">
+    
+<h3>songs from the Beatles</h3>
+    
+<div ng-controller="myCtrl">
+    <div>
+        <input type="text" ng-model="search">
+        <button type="submit">Filter</button> 
+    </div>
+
+    <div> 
+        <ul>  
+            <li  class="slide" ng-repeat="song in songs | filter:search">
+                {{song}}
+            </li> 
+        </ul>
+    </div>    
+</div>
+    
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->    
+<div>
+    <a href="#/clickme1"><img ng-src="img/phones/clickMe1.png"></a>
+    <a href="#/clickme2"><img ng-src="img/phones/clickMe2.png"></a>
+    <a href="#/clickme3"><img ng-src="img/phones/clickMe3.png"></a>
+    <a href="#/phones"><img ng-src="img/phones/loginHomePage.png"></a>    
+</div>
+    
+</body>

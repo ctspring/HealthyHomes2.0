@@ -1,7 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-      <!--Sidebar content-->
         
         <br><br>
       Inspector ID: <input ng-model="query">
@@ -9,16 +8,12 @@
       Password: <input ng-model="query1">
         <br><br>
        
-        <a href="#/phones/:phoneId">
-        <img ng-src="img/phones/Login_button.gif">
-        </a>
+        <a href="#/phones/:phoneId"><img ng-src="img/phones/Login_button.gif"></a>
  
+        <div class="col-md-10">
+            <ul class="phones"></ul>
+        </div>
+        
+      </div>
     </div>
-    <div class="col-md-10">
-      <!--Body content-->
-
-      <ul class="phones"></ul>
-
-    </div>
-  </div>
 </div>
