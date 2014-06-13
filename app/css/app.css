@@ -24,8 +24,8 @@ body {
 
 
 li{list-style: none; }
-body{margin: 50px; background-color: #333; color: #ccc; overflow: hidden;}
-h3{color: #fff;}
+body{margin: 50px; background-color: #fff4f4; color: #79aeff; overflow: hidden;}
+h3{color: #fab4b4;}
 .animate-enter, .animate-leave {
 transition: 500ms ease-in all;
 position: relative;
