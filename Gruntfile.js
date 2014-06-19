@@ -1,4 +1,4 @@
-// Generated on 2014-06-16 using generator-angular-cordova 0.0.1
+// Generated on 2014-06-13 using generator-angular-cordova 0.0.1
 'use strict';
 
 // # Globbing
@@ -296,7 +296,7 @@ module.exports = function (grunt) {
 
         shell: {
             iossimstart: {
-                command: 'ios-sim launch platforms/ios/build/helloCordova.app --exit' + (device.family !== 'default' ? ' --family ' + device.family : ''),
+                command: 'ios-sim launch platforms/ios/build/volunteerManagementApp.app --exit' + (device.family !== 'default' ? ' --family ' + device.family : ''),
                 options: {
                     stdout: true
                 }
