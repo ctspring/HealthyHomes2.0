@@ -8,19 +8,16 @@
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>    
+    <script src="bower_components/angular-animate/angular-animate.js"></script> 
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>    
   <script src="js/app.js"></script> 
   <script src="js/controllers.js"></script>
   <script src="js/services.js"></script>
-</head>
-    
+</head> 
     
 <body>
-    <a href="#/phones"><img ng-src="img/phones/loginHomePage.png"></a>    
-    <div ng-view class="slide"></div>
+    <div ui-view="app" class="slide"></div>
 </body>
     
 </html>
-
-
 

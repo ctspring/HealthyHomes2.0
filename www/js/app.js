@@ -3,36 +3,41 @@
 /* App Module */
 
 var phonecatApp = angular.module('phonecatApp', [
-  'ngRoute', 'phonecatControllers', 'ngAnimate'
+  'ngRoute', 'phonecatControllers', 'ui.router', 'ngAnimate'
 ]); //dependencies
 
-phonecatApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/loginPage.html',
-        controller: 'PhoneListCtrl'
+phonecatApp.config(
+  function($stateProvider, $urlRouterProvider) {
+    $stateProvider.
+      state('index', {
+          url: "",
+          views: {
+            "app": { templateUrl: "partials/loginPage.html"}
+          }
+      }).    
+      state('login', {
+          url: "/phones/:phoneId",
+          views: {
+            "app": {templateUrl: "partials/beatles.html", controller: 'PhoneListCtrl'}
+          }
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/beatles.html',
-        controller: 'PhoneListCtrl'
+      state('login.clickme1', {
+          url: "",
+          templateUrl: "partials/clickme1.html"
       }).
-      when('/clickme1', {
-        templateUrl: 'partials/clickMe1.html',
-        controller: 'PhoneListCtrl'
+      state('login.clickme2', {
+          url: "/clickme2",
+          templateUrl: "partials/clickme2.html"
       }).
-      when('/clickme2', {
-        templateUrl: 'partials/clickMe2.html',
-        controller: 'PhoneListCtrl'
+      state('login.clickme3', {
+          url: "/clickme3",
+          templateUrl: "partials/clickme3.html"
       }).
-      when('/clickme3', {
-        templateUrl: 'partials/clickMe3.html',
-        controller: 'PhoneListCtrl'
-      }).     
-      otherwise({
-        redirectTo: '/phones'
+      state('loginHomePage', {
+          url: "/phones",
+          views: {
+            "app": { templateUrl: "partials/loginPage.html"}
+          }
       });
-  }]);
-
-
+  });
 
