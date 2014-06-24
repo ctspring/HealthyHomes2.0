@@ -2,8 +2,6 @@
 
 /* Services */
 
-// $$$$$$$$$$$$$$$$$ to talk to DB $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
 var databaseServices = angular.module('databaseServicesModule', ['ngResource']);
 databaseServices.factory('databaseConnection', ['$resource', '$http',
     function($resource, $http){
@@ -12,7 +10,5 @@ databaseServices.factory('databaseConnection', ['$resource', '$http',
             hello: {method:'GET', params:{"commType":"Hello"}}, 
             login: {method:'GET', params:{"requestType":"LOGIN"}},
             queryWebService: {method:'GET'},
-
         });
-
     }]);

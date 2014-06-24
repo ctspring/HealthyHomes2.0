@@ -2,17 +2,17 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
-  'ngRoute', 'phonecatControllers', 'ui.router', 'ngAnimate'
+var HHApp = angular.module('HHApp', [
+  'ngRoute', 'HHControllers', 'loginControllers', 'ui.router', 'ngAnimate', 'databaseServicesModule'
 ]); //dependencies
 
-phonecatApp.config(
+HHApp.config(
   function($stateProvider, $urlRouterProvider) {
     $stateProvider.
       state('index', {
           url: "",
           views: {
-            "app": { templateUrl: "partials/loginPage.html"}
+            "app": { templateUrl: "partials/loginPage.html", controller: 'loginController'}
           }
       }).    
       state('login', {

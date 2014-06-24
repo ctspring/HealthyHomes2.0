@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', ['ui.router']);
-phonecatControllers.controller('PhoneListCtrl', ['$scope', '$http',
+var HHControllers = angular.module('HHControllers', ['ui.router']);
+HHControllers.controller('PhoneListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $http.get('phones/phones.json').success(function(data) {
       $scope.phones = data;
@@ -18,22 +18,40 @@ function myCtrl($scope){
 
 // %%%%%%%%%% to talk to DB %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-var databaseController = angular.module('databaseControllerModule', []);
-databaseController.controller('dbDisplayController', ['$scope', 'databaseConnection',
+var loginControllers = angular.module('loginControllers', []);
+loginControllers.controller('loginController', ['$scope', 'databaseConnection',
   function($scope, databaseConnection) {
-    $scope.hello = databaseConnection.hello();
-    $scope.queryResult = databaseConnection.query();    
+    $scope.hello = databaseConnection.hello(); 
+    $scope.queryResult = databaseConnection.query();
+    
     databaseConnection.login({"data": {userName:"user", passWord: "pass"}}, function(value){
         $scope.login = value;
         $scope.loginData = JSON.parse(value.data);
     });
-    
-    $scope.send = function(){
-        $scope.user = databaseConnection.queryWebService({"queryA":$scope.queryA});
-        $scope.pass = databaseConnection.queryWebService({"query1":$scope.query1});        
-        $scope.inputText='';
-    };
       
+    $scope.send = function(){
+        $scope.said = databaseConnection.queryWebService({"newStuff":$scope.inputText});
+        console.log($scope.said);
+        $scope.inputText='';
+    };      
   }]);
 
-
+loginControllers.controller('loginCtrl', ['$scope', 'databaseConnection', 
+ function($scope, databaseConnection) {
+     $scope.submit = function() {
+         if ($scope.userName && $scope.passWord) {
+             $scope.loginMsg = "Thank you for logging in!";
+             $scope.loginResult = databaseConnection.login({userName:$scope.userName, passWord:$scope.passWord});
+             $scope.userName = '';
+             $scope.passWord = '';
+         } else if(!$scope.userName && !$scope.passWord) {
+             $scope.loginMsg = "You haven't entered your username OR password!";
+         } else if (!$scope.userName) {
+             $scope.loginMsg = "Please enter your username!";
+             $scope.loginResult = "";
+         } else if (!$scope.passWord) {
+             $scope.loginMsg = "Please enter your password!";
+             $scope.loginResult = "";
+         }
+     };
+ }]);

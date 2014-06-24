@@ -1,24 +1,24 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-        
-        <form ng-submit="send()">        
-            <br><br>
-            Inspector ID: <input ng-model="queryA">
-            <br><br>
-            Password: <input ng-model="query1">
-            <br><br>
-            
-            <a ui-sref="login"><img ng-src="img/phones/Login_button.gif"></a>
-            <input value="Submit" id="submit" type="submit">
-            <div class="col-md-10">
-                <ul class="phones"></ul>
-            </div>
-            <br>
-            <p>Preview: {{queryA + " " + query1}}</p>
-            <p>Sent/Recieved: {{user.queryA + " " + pass.query1}}</p>
-        </form>        
-        
+        <div ng-controller="loginCtrl">
+            <form ng-submit="submit()">        
+                <br><br>
+                <h3>submit --> shows database connection after username/password input</h3>
+                <h3>login --> goes to beatles.html</h3>
+                Inspector ID: <input type="text" ng-model="userName" name="userName">
+                <br><br>
+                Password: <input type="password" ng-model="passWord" name="passWord">
+                <br><br>
+                <input type="submit" value="Submit" id="submit">
+                
+                <a ui-sref="login"><img ng-src="img/phones/Login_button.gif"></a>
+
+                <br>
+            </form>            
+            <p>{{loginMsg}}</p>
+            <p>{{loginResult}}</p>
+        </div>     
       </div>
     </div>
 </div>
