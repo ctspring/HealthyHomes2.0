@@ -18,25 +18,27 @@ phonecatApp.config(
       state('login', {
           url: "/phones/:phoneId",
           views: {
-            "app": {templateUrl: "partials/beatles.html", controller: 'PhoneListCtrl'}
+            "app": {templateUrl: "partials/beatles.html", controller: 'PhoneListCtrl'} 
           }
       }).
       state('login.clickme1', {
-          url: "",
-          templateUrl: "partials/clickme1.html"
+          views: {
+            "a": {url: "/clickme1", templateUrl: "partials/clickme1.html"}
+          }
       }).
       state('login.clickme2', {
-          url: "/clickme2",
-          templateUrl: "partials/clickme2.html"
+          views: {
+            "b": {url: "/clickme2", templateUrl: "partials/clickme2.html"}
+          }
       }).
       state('login.clickme3', {
-          url: "/clickme3",
-          templateUrl: "partials/clickme3.html"
+          views: {
+            "c": {url: "/clickme3", templateUrl: "partials/clickme3.html"}
+          }
       }).
       state('loginHomePage', {
-          url: "/phones",
           views: {
-            "app": { templateUrl: "partials/loginPage.html"}
+            "app": {url: "", templateUrl: "partials/loginPage.html"}
           }
       });
   });
